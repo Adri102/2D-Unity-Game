@@ -20,66 +20,54 @@ public class CollisionDetectorEditor : Editor
         else myStyle.normal.textColor = Color.red;
         EditorGUILayout.LabelField("IsGrounded", myStyle);
 
-        GUIStyle myStyle2 = EditorStyles.boldLabel;
-        if(newCollision.wasGroundedLastFrame) myStyle2.normal.textColor = Color.green;
-        else myStyle2.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("WasGroundedLastFrame", myStyle2);
+        if(newCollision.wasGroundedLastFrame) myStyle.normal.textColor = Color.green;
+        else myStyle.normal.textColor = Color.red;
+        EditorGUILayout.LabelField("WasGroundedLastFrame", myStyle);
 
-        GUIStyle myStyle3 = EditorStyles.boldLabel;
-        if(newCollision.justGrounded) myStyle3.normal.textColor = Color.green;
-        else myStyle3.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("JustGrounded", myStyle3);
+        if(newCollision.justGrounded) myStyle.normal.textColor = Color.green;
+        else myStyle.normal.textColor = Color.red;
+        EditorGUILayout.LabelField("JustGrounded", myStyle);
 
-        GUIStyle myStyle4 = EditorStyles.boldLabel;
-        if(newCollision.justNotGrounded) myStyle4.normal.textColor = Color.green;
-        else myStyle4.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("JustNotGrounded", myStyle4);
+        if(newCollision.justNotGrounded) myStyle.normal.textColor = Color.green;
+        else myStyle.normal.textColor = Color.red;
+        EditorGUILayout.LabelField("JustNotGrounded", myStyle);
 
-        GUIStyle myStyle5 = EditorStyles.boldLabel;
-        if(newCollision.isFalling) myStyle5.normal.textColor = Color.green;
-        else myStyle4.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("IsFalling", myStyle5);
+        if(newCollision.isFalling) myStyle.normal.textColor = Color.green;
+        else myStyle.normal.textColor = Color.red;
+        EditorGUILayout.LabelField("IsFalling", myStyle);
 
 
-        GUIStyle myStyle6 = EditorStyles.boldLabel;
-        if(newCollision.isWalled) myStyle6.normal.textColor = Color.green;
-        else myStyle6.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("IsWalled", myStyle6);
+        if(newCollision.isWalled) myStyle.normal.textColor = Color.green;
+        else myStyle.normal.textColor = Color.red;
+        EditorGUILayout.LabelField("IsWalled", myStyle);
 
-        GUIStyle myStyle7 = EditorStyles.boldLabel;
-        if(newCollision.wasWalledLastFrame) myStyle7.normal.textColor = Color.green;
-        else myStyle7.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("WasWalledLastFrame", myStyle7);
+        if(newCollision.wasWalledLastFrame) myStyle.normal.textColor = Color.green;
+        else myStyle.normal.textColor = Color.red;
+        EditorGUILayout.LabelField("WasWalledLastFrame", myStyle);
 
-        GUIStyle myStyle8 = EditorStyles.boldLabel;
-        if(newCollision.justWalled) myStyle8.normal.textColor = Color.green;
-        else myStyle8.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("JustWall", myStyle8);
+        if(newCollision.justWalled) myStyle.normal.textColor = Color.green;
+        else myStyle.normal.textColor = Color.red;
+        EditorGUILayout.LabelField("JustWall", myStyle);
 
-        GUIStyle myStyle9 = EditorStyles.boldLabel;
-        if(newCollision.justNotWalled) myStyle9.normal.textColor = Color.green;
-        else myStyle9.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("JustNotWalled", myStyle9);
+        if(newCollision.justNotWalled) myStyle.normal.textColor = Color.green;
+        else myStyle.normal.textColor = Color.red;
+        EditorGUILayout.LabelField("JustNotWalled", myStyle);
 
-        GUIStyle myStyle10 = EditorStyles.boldLabel;
-        if(newCollision.isCeiling) myStyle10.normal.textColor = Color.green;
-        else myStyle10.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("isCeiling", myStyle10);
+        if(newCollision.isCeiling) myStyle.normal.textColor = Color.green;
+        else myStyle.normal.textColor = Color.red;
+        EditorGUILayout.LabelField("isCeiling", myStyle);
 
-        GUIStyle myStyle11 = EditorStyles.boldLabel;
-        if(newCollision.wasCeilingLastFrame) myStyle11.normal.textColor = Color.green;
-        else myStyle11.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("WasCeilingLastFrame", myStyle11);
+        if(newCollision.wasCeilingLastFrame) myStyle.normal.textColor = Color.green;
+        else myStyle.normal.textColor = Color.red;
+        EditorGUILayout.LabelField("WasCeilingLastFrame", myStyle);
 
-        GUIStyle myStyle12 = EditorStyles.boldLabel;
-        if(newCollision.justCeiled) myStyle12.normal.textColor = Color.green;
-        else myStyle12.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("JusCeiled", myStyle12);
+        if(newCollision.justCeiled) myStyle.normal.textColor = Color.green;
+        else myStyle.normal.textColor = Color.red;
+        EditorGUILayout.LabelField("JusCeiled", myStyle);
 
-        GUIStyle myStyle13 = EditorStyles.boldLabel;
-        if(newCollision.justNotCeiled) myStyle13.normal.textColor = Color.green;
-        else myStyle13.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("JustNotCeiled", myStyle13);
+        if(newCollision.justNotCeiled) myStyle.normal.textColor = Color.green;
+        else myStyle.normal.textColor = Color.red;
+        EditorGUILayout.LabelField("JustNotCeiled", myStyle);
 
         showBase = EditorGUILayout.Foldout(showBase, "BaseInspector", true, EditorStyles.toolbarDropDown);
         if(showBase) base.OnInspectorGUI();
