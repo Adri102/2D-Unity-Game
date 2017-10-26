@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class CollisionDetector : MonoBehaviour {
 
     [Header("Ground")]
@@ -57,7 +58,7 @@ public class CollisionDetector : MonoBehaviour {
 
 
 
-    private void FixedUpdate()
+    public void MyFixedUpdate()
     {
         ResetState();
         GroundDetection();
@@ -83,6 +84,7 @@ public class CollisionDetector : MonoBehaviour {
         justCeiled = false;
         justNotCeiled = false;
     }
+
     void GroundDetection()
     {
         if(!checkGround) return;
@@ -118,6 +120,7 @@ public class CollisionDetector : MonoBehaviour {
         if (!wasWalledLastFrame && isWalled) justWalled = true;
         if (wasWalledLastFrame && !isWalled) justNotWalled = true;
     }
+
     void CeilingDetection()
     {
         if (!checkCeiling) return;
