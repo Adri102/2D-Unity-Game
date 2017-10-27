@@ -37,21 +37,21 @@ public class CollisionDetectorEditor : Editor
         EditorGUILayout.LabelField("IsFalling", myStyle);
 
 
-        if(newCollision.isWalled) myStyle.normal.textColor = Color.green;
+        if(newCollision.isTouchingWall) myStyle.normal.textColor = Color.green;
         else myStyle.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("IsWalled", myStyle);
+        EditorGUILayout.LabelField("isTouchingWall", myStyle);
 
-        if(newCollision.wasWalledLastFrame) myStyle.normal.textColor = Color.green;
+        if(newCollision.wasTouchingWallLastFrame) myStyle.normal.textColor = Color.green;
         else myStyle.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("WasWalledLastFrame", myStyle);
+        EditorGUILayout.LabelField("WasTouchingWallLastFrame", myStyle);
 
-        if(newCollision.justWalled) myStyle.normal.textColor = Color.green;
+        if(newCollision.justTouchedWall) myStyle.normal.textColor = Color.green;
         else myStyle.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("JustWall", myStyle);
+        EditorGUILayout.LabelField("JustTouchedWall", myStyle);
 
-        if(newCollision.justNotWalled) myStyle.normal.textColor = Color.green;
+        if(newCollision.justNotTouchedWall) myStyle.normal.textColor = Color.green;
         else myStyle.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("JustNotWalled", myStyle);
+        EditorGUILayout.LabelField("JustNotTouchedWalled", myStyle);
 
         if(newCollision.isCeiling) myStyle.normal.textColor = Color.green;
         else myStyle.normal.textColor = Color.red;

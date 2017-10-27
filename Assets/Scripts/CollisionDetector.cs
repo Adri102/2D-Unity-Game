@@ -24,10 +24,10 @@ public class CollisionDetector : MonoBehaviour {
 
     [Header("Wall")]
     [Header("State")]
-    public bool isWalled;
-    public bool wasWalledLastFrame;
-    public bool justWalled;
-    public bool justNotWalled;
+    public bool isTouchingWall;
+    public bool wasTouchingWallLastFrame;
+    public bool justTouchedWall;
+    public bool justNotTouchedWall;
     
 
     [Header("Filter")]
@@ -74,10 +74,10 @@ public class CollisionDetector : MonoBehaviour {
         justGrounded = false;
         justNotGrounded = false;
 
-        wasWalledLastFrame = isWalled;
-        isWalled = false;
-        justWalled = false;
-        justNotWalled = false;
+        wasTouchingWallLastFrame = isTouchingWall;
+        isTouchingWall = false;
+        justTouchedWall = false;
+        justNotTouchedWall = false;
 
         wasCeilingLastFrame = isCeiling;
         isCeiling = false;
@@ -114,11 +114,11 @@ public class CollisionDetector : MonoBehaviour {
 
         if (numColliders > 0)
         {
-            isWalled = true;
+            isTouchingWall = true;
         }
 
-        if (!wasWalledLastFrame && isWalled) justWalled = true;
-        if (wasWalledLastFrame && !isWalled) justNotWalled = true;
+        if (!wasTouchingWallLastFrame && isTouchingWall) justTouchedWall = true;
+        if (wasTouchingWallLastFrame && !isTouchingWall) justNotTouchedWall = true;
     }
 
     void CeilingDetection()
