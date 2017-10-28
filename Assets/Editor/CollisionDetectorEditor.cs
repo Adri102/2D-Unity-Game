@@ -36,8 +36,10 @@ public class CollisionDetectorEditor : Editor
         else myStyle.normal.textColor = Color.red;
         EditorGUILayout.LabelField("IsFalling", myStyle);
 
+        EditorGUILayout.Space();
 
-        if(newCollision.isTouchingWall) myStyle.normal.textColor = Color.green;
+
+        if (newCollision.isTouchingWall) myStyle.normal.textColor = Color.green;
         else myStyle.normal.textColor = Color.red;
         EditorGUILayout.LabelField("isTouchingWall", myStyle);
 
@@ -53,21 +55,23 @@ public class CollisionDetectorEditor : Editor
         else myStyle.normal.textColor = Color.red;
         EditorGUILayout.LabelField("JustNotTouchedWalled", myStyle);
 
-        if(newCollision.isCeiling) myStyle.normal.textColor = Color.green;
-        else myStyle.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("isCeiling", myStyle);
+        EditorGUILayout.Space();
 
-        if(newCollision.wasCeilingLastFrame) myStyle.normal.textColor = Color.green;
+        if(newCollision.isTouchingCeiling) myStyle.normal.textColor = Color.green;
         else myStyle.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("WasCeilingLastFrame", myStyle);
+        EditorGUILayout.LabelField("isTouchingCeiling", myStyle);
 
-        if(newCollision.justCeiled) myStyle.normal.textColor = Color.green;
+        if(newCollision.WasTouchingCeilingLastFrame) myStyle.normal.textColor = Color.green;
         else myStyle.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("JusCeiled", myStyle);
+        EditorGUILayout.LabelField("WasTouchingCeilingLastFrame", myStyle);
 
-        if(newCollision.justNotCeiled) myStyle.normal.textColor = Color.green;
+        if(newCollision.JusTouchedCeiling) myStyle.normal.textColor = Color.green;
         else myStyle.normal.textColor = Color.red;
-        EditorGUILayout.LabelField("JustNotCeiled", myStyle);
+        EditorGUILayout.LabelField("JusTouchedCeiling", myStyle);
+
+        if(newCollision.JustNotTouchedCeiling) myStyle.normal.textColor = Color.green;
+        else myStyle.normal.textColor = Color.red;
+        EditorGUILayout.LabelField("JustNotTouchedCeiling", myStyle);
 
         showBase = EditorGUILayout.Foldout(showBase, "BaseInspector", true, EditorStyles.toolbarDropDown);
         if(showBase) base.OnInspectorGUI();

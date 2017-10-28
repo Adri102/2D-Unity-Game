@@ -41,10 +41,10 @@ public class CollisionDetector : MonoBehaviour {
 
     [Header("Ceiling")]
     [Header("State")]
-    public bool isCeiling;
-    public bool wasCeilingLastFrame;
-    public bool justCeiled;
-    public bool justNotCeiled;
+    public bool isTouchingCeiling;
+    public bool WasTouchingCeilingLastFrame;
+    public bool JusTouchedCeiling;
+    public bool JustNotTouchedCeiling;
 
 
     [Header("Filter")]
@@ -64,6 +64,8 @@ public class CollisionDetector : MonoBehaviour {
         GroundDetection();
         WallDetection();
         CeilingDetection();
+
+
     }
 
     void ResetState()
@@ -79,10 +81,10 @@ public class CollisionDetector : MonoBehaviour {
         justTouchedWall = false;
         justNotTouchedWall = false;
 
-        wasCeilingLastFrame = isCeiling;
-        isCeiling = false;
-        justCeiled = false;
-        justNotCeiled = false;
+        WasTouchingCeilingLastFrame = isTouchingCeiling;
+        isTouchingCeiling = false;
+        JusTouchedCeiling = false;
+        JustNotTouchedCeiling = false;
     }
 
     void GroundDetection()
@@ -132,11 +134,16 @@ public class CollisionDetector : MonoBehaviour {
 
         if (numColliders > 0)
         {
-            isCeiling = true;
+            isTouchingCeiling = true;
         }
 
-        if (!wasCeilingLastFrame && isCeiling) justCeiled = true;
-        if (wasCeilingLastFrame && !isCeiling) justNotCeiled = true;
+        if (!WasTouchingCeilingLastFrame && isTouchingCeiling) JusTouchedCeiling = true;
+        if (WasTouchingCeilingLastFrame && !isTouchingCeiling) JustNotTouchedCeiling = true;
+    }
+
+    public void Flip()
+    {
+       wallBoxPos.x *= -1;
     }
 
     private void OnDrawGizmosSelected()

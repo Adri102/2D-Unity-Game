@@ -36,7 +36,8 @@ public class CharacterBehaviour : MonoBehaviour
     {
         collisions = GetComponent<CollisionDetector>();
         rb = GetComponent<Rigidbody2D>();
-	}
+        rend = GetComponent<SpriteRenderer>();
+    }
 	
 	void Update ()
     {
@@ -125,7 +126,7 @@ public class CharacterBehaviour : MonoBehaviour
     {
         isFacingRight = !isFacingRight;
         rend.flipX = !rend.flipX;
-        //collisions.Flip(isFacingRight);
+        collisions.Flip();
     }
 
     #region Public
