@@ -36,7 +36,7 @@ public class CharacterBehaviour : MonoBehaviour
     {
         collisions = GetComponent<CollisionDetector>();
         rb = GetComponent<Rigidbody2D>();
-        rend = GetComponent<SpriteRenderer>();
+        rend = GetComponentInChildren<SpriteRenderer>();
     }
 	
 	void Update ()
