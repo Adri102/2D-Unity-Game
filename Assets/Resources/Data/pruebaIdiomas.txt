@@ -1,0 +1,4 @@
+﻿id	spanish	english
+start	Empezar	Start
+exit	Salir	Exit
+title	Titulo	Title
