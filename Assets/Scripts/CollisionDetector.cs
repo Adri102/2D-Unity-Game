@@ -39,33 +39,11 @@ public class CollisionDetector : MonoBehaviour {
     public Vector2 wallBoxPos;
     public Vector2 wallBoxSize;
 
-    [Header("Ceiling")]
-    [Header("State")]
-    public bool isTouchingCeiling;
-    public bool WasTouchingCeilingLastFrame;
-    public bool JusTouchedCeiling;
-    public bool JustNotTouchedCeiling;
-
-
-    [Header("Filter")]
-    public ContactFilter2D filterCeiling;
-    public int maxCollidersCeiling = 1;
-    public bool checkCeiling = true;
-
-    [Header("Box Properties")]
-    public Vector2 ceilingBoxPos;
-    public Vector2 ceilingBoxSize;
-
-
-
     public void MyFixedUpdate()
     {
         ResetState();
         GroundDetection();
         WallDetection();
-        CeilingDetection();
-
-
     }
 
     void ResetState()
@@ -80,11 +58,6 @@ public class CollisionDetector : MonoBehaviour {
         isTouchingWall = false;
         justTouchedWall = false;
         justNotTouchedWall = false;
-
-        WasTouchingCeilingLastFrame = isTouchingCeiling;
-        isTouchingCeiling = false;
-        JusTouchedCeiling = false;
-        JustNotTouchedCeiling = false;
     }
 
     void GroundDetection()
@@ -123,23 +96,6 @@ public class CollisionDetector : MonoBehaviour {
         if (wasTouchingWallLastFrame && !isTouchingWall) justNotTouchedWall = true;
     }
 
-    void CeilingDetection()
-    {
-        if (!checkCeiling) return;
-
-        Vector3 pos = this.transform.position + (Vector3)ceilingBoxPos;
-        Collider2D[] results = new Collider2D[maxCollidersCeiling];
-
-        int numColliders = Physics2D.OverlapBox(pos, ceilingBoxSize, 0, filterCeiling, results);
-
-        if (numColliders > 0)
-        {
-            isTouchingCeiling = true;
-        }
-
-        if (!WasTouchingCeilingLastFrame && isTouchingCeiling) JusTouchedCeiling = true;
-        if (WasTouchingCeilingLastFrame && !isTouchingCeiling) JustNotTouchedCeiling = true;
-    }
 
     public void Flip()
     {
@@ -155,9 +111,5 @@ public class CollisionDetector : MonoBehaviour {
         Gizmos.color = Color.blue;
         Vector3 posWall = this.transform.position + (Vector3)wallBoxPos;
         Gizmos.DrawWireCube(posWall, wallBoxSize);
-
-        Gizmos.color = Color.yellow;
-        Vector3 posCeiling = this.transform.position + (Vector3)ceilingBoxPos;
-        Gizmos.DrawWireCube(posCeiling, ceilingBoxSize);
     }
 }
