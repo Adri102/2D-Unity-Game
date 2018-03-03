@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public CharacterBehaviour player;
+    public BulletSpawner bullets;
 
 
     void Start()
@@ -19,6 +20,8 @@ public class InputManager : MonoBehaviour
         // salto del player
         InputJump();
         InputRevive();
+        // disparo del player
+        InputShoot();
     }
 
     void InputPause()
@@ -42,6 +45,16 @@ public class InputManager : MonoBehaviour
     void InputDirectAccess()
     {
 
+    }
+
+    void InputShoot()
+    {
+        if(Input.GetButton("Fire1"))
+        {
+            Debug.Log("Shooting");
+            bullets.shooting = true;
+        }
+        else bullets.shooting = false;
     }
 
     void InputRevive()
