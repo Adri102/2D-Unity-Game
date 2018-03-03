@@ -36,6 +36,7 @@ public class CharacterBehaviour : MonoBehaviour
                 DefaultUpdate();
                 break;
             case State.Dead:
+                Deadpdate();
                 break;
             case State.GodMode:
                 break;
@@ -53,6 +54,7 @@ public class CharacterBehaviour : MonoBehaviour
             isJumping = false;
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            Debug.Log(rb.velocity);
         }
 
         rb.velocity = new Vector2(speed, rb.velocity.y);
@@ -60,7 +62,11 @@ public class CharacterBehaviour : MonoBehaviour
 
     protected virtual void DefaultUpdate()
     {
-
+        
+    }
+    protected virtual void Deadpdate()
+    {
+        gameObject.SetActive(false);
     }
 
     void Jump()
@@ -79,4 +85,15 @@ public class CharacterBehaviour : MonoBehaviour
         }
     }
     #endregion
+
+    public void KillPlayer()
+    {
+        state = State.Dead;
+    }
+
+    public void RevivePlayer()
+    {
+        state = State.Default;
+        gameObject.SetActive(true);
+    }
 }

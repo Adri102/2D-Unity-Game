@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class CollisionDetector : MonoBehaviour {
-
+public class CollisionDetector : MonoBehaviour
+{
+    public CharacterBehaviour _Character;
     [Header("Ground")]
     [Header("State")]
     public bool isGrounded;
@@ -44,6 +45,9 @@ public class CollisionDetector : MonoBehaviour {
         ResetState();
         GroundDetection();
         WallDetection();
+
+        if(isTouchingWall) _Character.KillPlayer();
+
     }
 
     void ResetState()

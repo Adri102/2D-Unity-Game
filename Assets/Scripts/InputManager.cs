@@ -18,6 +18,7 @@ public class InputManager : MonoBehaviour
         InputPause();
         // salto del player
         InputJump();
+        InputRevive();
     }
 
     void InputPause()
@@ -41,5 +42,10 @@ public class InputManager : MonoBehaviour
     void InputDirectAccess()
     {
 
+    }
+
+    void InputRevive()
+    {
+        if(Input.GetKeyDown(KeyCode.X)) player.RevivePlayer();
     }
 }
