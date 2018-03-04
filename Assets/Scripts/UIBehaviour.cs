@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class UIBehaviour : MonoBehaviour
 {
-    public Text _Text;
-    public int _Score;
-    public float _Disctance;
-    public float _DistanceMultiplicator;
+    public Text Text;
+    public int score;
+    public float disctance;
+    public float distanceMultiplicator;
 
     void Start ()
     {
@@ -17,13 +17,13 @@ public class UIBehaviour : MonoBehaviour
 	
 	void Update ()
     {
-        _Text.text = "Score: " + _Score + "  Distance: " + (int)_Disctance;
+        Text.text = "Score: " + score + "  Distance: " + (int)disctance;
 
-        _Disctance += Time.deltaTime * _DistanceMultiplicator;
+        disctance += Time.deltaTime * distanceMultiplicator;
     }
 
     public void AddScore(int ScoreToAdd)
     {
-        _Score += ScoreToAdd;
+        score += ScoreToAdd;
     }
 }

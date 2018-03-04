@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour {
-
+public class EnemyBehaviour : MonoBehaviour
+{
     public Transform Sprite;
     public int speed;
     public int minRandom;
@@ -11,6 +11,7 @@ public class EnemyBehaviour : MonoBehaviour {
     public int health = 0;
     public int maxHealth = 100;
     int random;
+    int scoreValue=10;
 
     public void Start()
     {
@@ -25,6 +26,7 @@ public class EnemyBehaviour : MonoBehaviour {
 
         if (Sprite.position.x < -8 || health <= 0)
         {
+            if(health <= 0) GameObject.Find("UIText").GetComponent<UIBehaviour>().AddScore(scoreValue);
             health = maxHealth;
             Sprite.position = new Vector3(random, Sprite.position.y, Sprite.position.z);
         }

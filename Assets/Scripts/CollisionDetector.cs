@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class CollisionDetector : MonoBehaviour
 {
-    public CharacterBehaviour _Character;
+    public CharacterBehaviour player;
     [Header("Ground")]
     [Header("State")]
     public bool isGrounded;
@@ -46,7 +46,7 @@ public class CollisionDetector : MonoBehaviour
         GroundDetection();
         WallDetection();
 
-        if(isTouchingWall) _Character.KillPlayer();
+        if(isTouchingWall) player.KillPlayer();
 
     }
 

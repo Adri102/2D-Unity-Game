@@ -26,12 +26,12 @@ public class InputManager : MonoBehaviour
 
     void InputPause()
     {
-        if (Input.GetButtonDown("Pause")) { Debug.Log("Pause"); }
+        if(Input.GetButtonDown("Pause")) { Debug.Log("Pause"); }
     }
 
     void InputJump()
     {
-        if (Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump"))
         {
             Debug.Log("Jump");
             player.JumpStart();
@@ -49,16 +49,29 @@ public class InputManager : MonoBehaviour
 
     void InputShoot()
     {
-        if(Input.GetButton("Fire1"))
+        //if(Input.GetButton("Fire1"))
+        if(Input.GetKeyDown(KeyCode.Z))
         {
             Debug.Log("Shooting");
             bullets.shooting = true;
         }
-        else bullets.shooting = false;
+        //else bullets.shooting = false;
     }
 
     void InputRevive()
     {
         if(Input.GetKeyDown(KeyCode.X)) player.RevivePlayer();
     }
+
+    public void TouchJump()
+    {
+        Debug.Log("JUMP");
+        player.JumpStart();
+    }
+    public void TouchShoot()
+    {
+        Debug.Log("Shoot");
+        bullets.shooting = true;
+    }
+
 }
