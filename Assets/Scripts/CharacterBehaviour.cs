@@ -36,7 +36,7 @@ public class CharacterBehaviour : MonoBehaviour
                 DefaultUpdate();
                 break;
             case State.Dead:
-                Deadpdate();
+                DeadUpdate();
                 break;
             case State.GodMode:
                 break;
@@ -64,7 +64,7 @@ public class CharacterBehaviour : MonoBehaviour
     {
         
     }
-    protected virtual void Deadpdate()
+    protected virtual void DeadUpdate()
     {
         gameObject.SetActive(false);
     }

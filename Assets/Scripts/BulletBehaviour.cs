@@ -5,11 +5,7 @@ using UnityEngine;
 public class BulletBehaviour : MonoBehaviour {
 
     public int speed;
-    // Use this for initialization
-    void Start()
-    {
-
-    }
+    public EnemyBehaviour enemy;
 
     // Update is called once per frame
     void Update()
@@ -24,8 +20,12 @@ public class BulletBehaviour : MonoBehaviour {
     }
 
     // colision con enemigo
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Enemy") gameObject.SetActive(false);
+        if (other.tag == "Enemy")
+        {
+            enemy.TakeDamage(20);
+            gameObject.SetActive(false);
+        }
     }
 }
