@@ -35,4 +35,11 @@ public class BulletSpawner : MonoBehaviour
             }
         }		
 	}
+    public void Reset()
+    {
+        counter = 0;
+        shooting = false;
+        for(int i = 0; i < bullets.Count; ++i)
+            bullets[i].SetActive(false);
+    }
 }

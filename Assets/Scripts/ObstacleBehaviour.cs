@@ -20,6 +20,10 @@ public class ObstacleBehaviour : MonoBehaviour {
         Sprite.Translate(Vector2.left * speed * Time.deltaTime);
         random = Random.Range(minRandom, maxRandom);
 
-        if (Sprite.position.x < -8) Sprite.position = new Vector3(random, Sprite.position.y, Sprite.position.z);
+        if(Sprite.position.x < -8) Reset();
+    }
+    public void Reset()
+    {
+        Sprite.position = new Vector3(random, Sprite.position.y, Sprite.position.z);
     }
 }

@@ -27,13 +27,18 @@ public class EnemyBehaviour : MonoBehaviour
         if (Sprite.position.x < -8 || health <= 0)
         {
             if(health <= 0) GameObject.Find("UIText").GetComponent<UIBehaviour>().AddScore(scoreValue);
-            health = maxHealth;
-            Sprite.position = new Vector3(random, Sprite.position.y, Sprite.position.z);
+            Reset();
         }
     }
 
     public void TakeDamage(int damage)
     {
         health -= damage;
+    }
+
+    public void Reset()
+    {
+        health = maxHealth;
+        Sprite.position = new Vector3(random, Sprite.position.y, Sprite.position.z);
     }
 }

@@ -121,6 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 287172481}
   - component: {fileID: 287172480}
+  - component: {fileID: 287172482}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 287172479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32a860e985778004fa8f9b9901b8f412, type: 3}
+  m_Script: {fileID: 11500000, guid: b0d6dab3f2a443f4392758bbfc940752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   backScene: 0
@@ -155,3 +156,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &287172482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 287172479}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a902e1e4e5ebb124ca5a4b5fe86768e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot: 0
+  state:
+    playerPosition: 0
+    hasKey: 0
+    maxScore: 0
+    playerName: 

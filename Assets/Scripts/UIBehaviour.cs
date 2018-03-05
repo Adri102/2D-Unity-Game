@@ -26,4 +26,10 @@ public class UIBehaviour : MonoBehaviour
     {
         score += ScoreToAdd;
     }
+
+    public void Reset()
+    {
+        score = 0;
+        disctance = 0;
+    }
 }
