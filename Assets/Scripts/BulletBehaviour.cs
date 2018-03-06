@@ -22,9 +22,9 @@ public class BulletBehaviour : MonoBehaviour {
     // colision con enemigo
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy")
+        if (other.tag != "Player")
         {
-            enemy.TakeDamage(20);
+            //enemy.TakeDamage(20);
             gameObject.SetActive(false);
         }
     }

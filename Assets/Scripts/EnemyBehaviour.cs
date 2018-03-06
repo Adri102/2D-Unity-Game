@@ -36,6 +36,14 @@ public class EnemyBehaviour : MonoBehaviour
         health -= damage;
     }
 
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Bullet")
+        {
+            TakeDamage(20);
+        }
+    }
+
     public void Reset()
     {
         health = maxHealth;

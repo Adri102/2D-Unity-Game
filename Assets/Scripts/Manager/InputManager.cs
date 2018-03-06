@@ -7,6 +7,8 @@ public class InputManager : MonoBehaviour
     public CharacterBehaviour player;
     public BulletSpawner bullets;
 
+    public float savedJumpForce;
+    public bool startJump=false;
 
     void Start()
     {
@@ -22,6 +24,19 @@ public class InputManager : MonoBehaviour
         InputRevive();
         // disparo del player
         InputShoot();
+
+        if(startJump)
+        {
+            Debug.Log("JUMP");
+            savedJumpForce += Time.deltaTime * 20;
+            if(player.jumpForce <= savedJumpForce)
+            {
+                player.JumpStart(savedJumpForce);
+                startJump = false;
+            }
+        }
+
+        Debug.Log(savedJumpForce);
     }
 
     void InputPause()
@@ -34,7 +49,15 @@ public class InputManager : MonoBehaviour
         if(Input.GetButtonDown("Jump"))
         {
             Debug.Log("Jump");
-            player.JumpStart();
+            //player.JumpStart(player.jumpForce);
+            savedJumpForce = player.jumpForce * 0.65f;
+            startJump = true;
+        }
+        else if(Input.GetButtonUp("Jump") && startJump)
+        {
+            Debug.Log("JUMP");
+            player.JumpStart(savedJumpForce);
+            startJump = false;
         }
     }
 
@@ -63,10 +86,24 @@ public class InputManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.X)) player.RevivePlayer();
     }
 
-    public void TouchJump()
+    /*public void TouchJumpDown()
     {
         Debug.Log("JUMP");
-        player.JumpStart();
+        player.JumpStart( );
+    }*/
+    public void TouchJumpDown()
+    {
+        savedJumpForce = player.jumpForce * 0.65f;
+        startJump = true;
+    }
+    public void TouchJumpUp()
+    {
+        if(startJump)
+        {
+            Debug.Log("JUMP");
+            player.JumpStart(savedJumpForce);
+            startJump = false;
+        }
     }
     public void TouchShoot()
     {

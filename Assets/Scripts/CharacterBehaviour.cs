@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ public class CharacterBehaviour : MonoBehaviour
     public float speed;
     [Header("Forces")]
     public float jumpForce;
+    public float defaultJumpForce;
     [Header("Graphics")]
     public SpriteRenderer rend;
     
@@ -26,6 +28,7 @@ public class CharacterBehaviour : MonoBehaviour
         collisions = GetComponent<CollisionDetector>();
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponentInChildren<SpriteRenderer>();
+        defaultJumpForce = jumpForce;
     }
 	
 	void Update ()
@@ -51,10 +54,12 @@ public class CharacterBehaviour : MonoBehaviour
 
         if(isJumping)
         {
+
             isJumping = false;
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             Debug.Log(rb.velocity);
+            jumpForce = defaultJumpForce;
         }
 
         rb.velocity = new Vector2(speed, rb.velocity.y);
@@ -75,12 +80,13 @@ public class CharacterBehaviour : MonoBehaviour
     }
 
     #region Public
-    public void JumpStart() //Decidir como será el salto
+    public void JumpStart(float newJumpForce) //Decidir como será el salto
     {
         if(!canJump) return;
 
         if(collisions.isGrounded)
         {
+            jumpForce = newJumpForce;
             Jump();
         }
     }
