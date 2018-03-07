@@ -8,12 +8,14 @@ public class CharacterBehaviour : MonoBehaviour
 {
     public enum State { Default, Dead, GodMode }
     public State state;
+    public float drunkCounter;
     [Header("State")]
     public bool canMove = true;
     public bool canJump = true;
     public bool jump = false;
     private bool isJumping = false;
     private bool releaseJump = false;
+    public bool drunk = false;
     [Header("Physics")]
     public Rigidbody2D rb;
     public CollisionDetector collisions;
@@ -84,6 +86,15 @@ public class CharacterBehaviour : MonoBehaviour
 
     protected virtual void DefaultUpdate()
     {
+        if(drunk)
+        {
+            drunkCounter += Time.deltaTime;
+            if(drunkCounter > 10)
+            {
+                drunk = false;
+                drunkCounter = 0;
+            }
+        }
     }
     protected virtual void DeadUpdate()
     {
@@ -117,6 +128,13 @@ public class CharacterBehaviour : MonoBehaviour
     public void RevivePlayer()
     {
         state = State.Default;
+        drunk = false;
+        drunkCounter = 0;
         gameObject.SetActive(true);
+    }
+
+    public void GetDrunk()
+    {
+        drunk = true;
     }
 }

@@ -6,6 +6,7 @@ public class GameplayLogic : MonoBehaviour
 {
     public CharacterBehaviour player;
     public EnemyBehaviour enemy;
+    public BeerBehaviour beer;
     public ObstacleBehaviour obstacle;
     public BulletSpawner bulletSpawner;
     public UIBehaviour uIBehaviour;
@@ -49,6 +50,7 @@ public class GameplayLogic : MonoBehaviour
         uIBehaviour.Reset();
         tactilButtons.SetActive(true);
         deadScreen.SetActive(false);
+        beer.Reset();
         gameStoped = false;
         Time.timeScale = 1.0f;
     }

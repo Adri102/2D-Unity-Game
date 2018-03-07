@@ -5,8 +5,10 @@ using UnityEngine;
 public class BulletSpawner : MonoBehaviour
 {
     public List<GameObject> bullets;
-    public Transform player;
+    public Transform playerTransform;
+    public CharacterBehaviour player;
     public float counter = 0;
+    public int bulletCounter = 0;
     public bool shooting = false;
 	// Use this for initialization
 	void Start ()
@@ -21,16 +23,38 @@ public class BulletSpawner : MonoBehaviour
         counter += Time.deltaTime;
         if (counter > 0.5 && shooting)
         {
-            counter = 0;
+            
             // busca la primera bala desactivada, la posiciona y la activa
             for(int i = 0; i < bullets.Count; i++)
             {
-                if(!bullets[i].gameObject.activeSelf)
+                if(player.drunk)
                 {
-                    bullets[i].transform.position = player.position + new Vector3(0, 0.5f, 0);
-                    bullets[i].gameObject.SetActive(true);
-                    shooting = false;
-                    break;
+                    if(!bullets[i].gameObject.activeSelf)
+                    {
+                        bullets[i].transform.position = playerTransform.position + new Vector3(0, bulletCounter*0.5f + 0.5f, 0);
+                        bullets[i].gameObject.SetActive(true);
+                        bulletCounter++;
+                        if (bulletCounter >= 3)
+                        {
+                            counter = 0;
+                            bulletCounter = 0;
+                            shooting = false;
+                            break;
+                        }
+                        
+                    }
+                }
+                else
+                {
+                    if(!bullets[i].gameObject.activeSelf)
+                    {
+                        bullets[i].transform.position = playerTransform.position + new Vector3(0, 0.5f, 0);
+                        bullets[i].gameObject.SetActive(true);
+                        bulletCounter = 0;
+                        counter = 0;
+                        shooting = false;
+                        break;
+                    }
                 }
             }
         }		

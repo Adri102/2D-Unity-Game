@@ -22,9 +22,8 @@ public class BulletBehaviour : MonoBehaviour {
     // colision con enemigo
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag != "Player")
+        if ((other.tag != "Player") && (other.tag != "Beer"))
         {
-            //enemy.TakeDamage(20);
             gameObject.SetActive(false);
         }
     }
