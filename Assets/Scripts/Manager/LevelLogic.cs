@@ -72,6 +72,11 @@ public class LevelLogic : MonoBehaviour {
         
     }
 
+	public void NexScene()
+	{
+		Load(nextScene);
+	}
+
     IEnumerator Loading()
     {
         while(loading)
