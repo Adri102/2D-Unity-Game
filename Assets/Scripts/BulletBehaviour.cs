@@ -6,6 +6,7 @@ public class BulletBehaviour : MonoBehaviour {
 
     public int speed;
     public EnemyBehaviour enemy;
+    public GameObject sparksParticle;
 
     // Update is called once per frame
     void Update()
@@ -24,6 +25,11 @@ public class BulletBehaviour : MonoBehaviour {
     {
         if ((other.tag != "Player") && (other.tag != "Beer"))
         {
+            if (other.tag == "Obstacle")
+            {
+                GameObject sparks = Instantiate(sparksParticle, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(Vector3.zero));
+                Destroy(sparks, 1);
+            }
             gameObject.SetActive(false);
         }
     }

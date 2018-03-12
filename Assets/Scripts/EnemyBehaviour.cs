@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    public Transform Sprite;
+    public GameObject bloodParticle;
     public int speed;
     public int minRandom;
     public int maxRandom;
@@ -15,16 +15,16 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void Start()
     {
-        Sprite = transform;
+
         health = maxHealth;
     }
     // Update is called once per frame
     void Update ()
     {
-        Sprite.Translate(Vector2.left * speed * Time.deltaTime);
+        transform.Translate(Vector2.left * speed * Time.deltaTime);
         random = Random.Range(minRandom, maxRandom);
 
-        if (Sprite.position.x < -8 || health <= 0)
+        if (transform.position.x < -10 || health <= 0)
         {
             if(health <= 0) GameObject.Find("UIText").GetComponent<UIBehaviour>().AddScore(scoreValue);
             Reset();
@@ -34,6 +34,8 @@ public class EnemyBehaviour : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        GameObject blood = Instantiate(bloodParticle, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.Euler(Vector3.zero));
+        Destroy(blood, 1);
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -47,6 +49,6 @@ public class EnemyBehaviour : MonoBehaviour
     public void Reset()
     {
         health = maxHealth;
-        Sprite.position = new Vector3(random, Sprite.position.y, Sprite.position.z);
+        transform.position = new Vector3(random, transform.position.y, transform.position.z);
     }
 }

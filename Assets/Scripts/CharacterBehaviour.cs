@@ -9,6 +9,8 @@ public class CharacterBehaviour : MonoBehaviour
     public enum State { Default, Dead, GodMode }
     public State state;
     public float drunkCounter;
+    public GameObject playerGlow;
+    public GameObject playerParticle;
     [Header("State")]
     public bool canMove = true;
     public bool canJump = true;
@@ -95,6 +97,7 @@ public class CharacterBehaviour : MonoBehaviour
                 drunkCounter = 0;
             }
         }
+        else if (playerParticle != null) Destroy(playerParticle);
     }
     protected virtual void DeadUpdate()
     {
@@ -136,5 +139,6 @@ public class CharacterBehaviour : MonoBehaviour
     public void GetDrunk()
     {
         drunk = true;
+        playerParticle = Instantiate(playerGlow, transform);
     }
 }
