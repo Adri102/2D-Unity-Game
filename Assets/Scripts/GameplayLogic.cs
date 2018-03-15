@@ -41,6 +41,12 @@ public class GameplayLogic : MonoBehaviour
         gameStoped = true;
     }
 
+    public void EndGame()
+    {
+        GameData.SaveGame(0);
+        Application.Quit();
+    }
+
     public void ResetGame()
     {
         player.RevivePlayer();

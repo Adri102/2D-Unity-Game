@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIBehaviour : MonoBehaviour
 {
     public Text Text;
+    public Text finalText;
     public int score;
     public float disctance;
     public float distanceMultiplicator;
@@ -18,6 +19,8 @@ public class UIBehaviour : MonoBehaviour
 	void Update ()
     {
         Text.text = "Score: " + score + "  Distance: " + (int)disctance;
+
+        finalText.text = "Score: " + score + "\nDistance: " + (int)disctance + "\nTotal: " + (score * (int)disctance);
 
         disctance += Time.deltaTime * distanceMultiplicator;
     }
