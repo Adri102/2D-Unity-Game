@@ -13,7 +13,7 @@ public class GroundsBehaviour : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate ()
+	void LateUpdate ()
 	{
 		_Ground.mainTextureOffset += new Vector2(_Speed * Time.deltaTime, 0);
 		if(_Ground.mainTextureOffset.x >= 18.0f)

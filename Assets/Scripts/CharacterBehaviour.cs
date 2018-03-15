@@ -28,6 +28,9 @@ public class CharacterBehaviour : MonoBehaviour
     public float jumpReleaseForce;
     [Header("Graphics")]
     public SpriteRenderer rend;
+    [Header("Audio")]
+    public AudioSource soundFXJump;
+    public AudioSource soundFXDeath;
 
     private float jumpReleaseTime = 0.25f;
     private float timeCounter = 0;
@@ -71,6 +74,7 @@ public class CharacterBehaviour : MonoBehaviour
             isJumping = true;
             rb.velocity = new Vector2(rb.velocity.x, 0);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            soundFXJump.Play();
             Debug.Log("Jump");
         }
         if(isJumping)
@@ -126,6 +130,7 @@ public class CharacterBehaviour : MonoBehaviour
     public void KillPlayer()
     {
         state = State.Dead;
+        soundFXDeath.Play();
     }
 
     public void RevivePlayer()

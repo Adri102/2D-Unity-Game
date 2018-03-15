@@ -12,6 +12,8 @@ public class EnemyBehaviour : MonoBehaviour
     public int maxHealth = 100;
     int random;
     int scoreValue=10;
+    public AudioSource soundFXHit;
+    public AudioSource soundFXDeath;
 
     public void Start()
     {
@@ -36,6 +38,7 @@ public class EnemyBehaviour : MonoBehaviour
         health -= damage;
         GameObject blood = Instantiate(bloodParticle, new Vector3(transform.position.x, transform.position.y + 1, transform.position.z), Quaternion.Euler(Vector3.zero));
         Destroy(blood, 1);
+        soundFXHit.Play();
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -48,6 +51,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void Reset()
     {
+        if(health <= 0) soundFXDeath.Play();
         health = maxHealth;
         transform.position = new Vector3(random, transform.position.y, transform.position.z);
         scoreValue = Random.Range(5, 15);

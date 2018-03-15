@@ -7,6 +7,7 @@ public class BulletBehaviour : MonoBehaviour {
     public int speed;
     public EnemyBehaviour enemy;
     public GameObject sparksParticle;
+    public AudioSource soundFX;
 
     // Update is called once per frame
     void Update()
@@ -29,6 +30,7 @@ public class BulletBehaviour : MonoBehaviour {
             {
                 GameObject sparks = Instantiate(sparksParticle, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.Euler(Vector3.zero));
                 Destroy(sparks, 1);
+                soundFX.Play();
             }
             gameObject.SetActive(false);
         }

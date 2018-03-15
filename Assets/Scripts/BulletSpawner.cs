@@ -10,8 +10,10 @@ public class BulletSpawner : MonoBehaviour
     public float counter = 0;
     public int bulletCounter = 0;
     public bool shooting = false;
-	// Use this for initialization
-	void Start ()
+    public AudioSource soundFXShot;
+    public AudioSource soundFXPowered;
+    // Use this for initialization
+    void Start ()
     {
 		
 	}
@@ -34,6 +36,7 @@ public class BulletSpawner : MonoBehaviour
                         bullets[i].transform.position = playerTransform.position + new Vector3(0, bulletCounter*0.5f + 0.5f, 0);
                         bullets[i].gameObject.SetActive(true);
                         bulletCounter++;
+                        soundFXPowered.Play();
                         if (bulletCounter >= 3)
                         {
                             counter = 0;
@@ -50,6 +53,7 @@ public class BulletSpawner : MonoBehaviour
                     {
                         bullets[i].transform.position = playerTransform.position + new Vector3(0, 0.5f, 0);
                         bullets[i].gameObject.SetActive(true);
+                        soundFXShot.Play();
                         bulletCounter = 0;
                         counter = 0;
                         shooting = false;

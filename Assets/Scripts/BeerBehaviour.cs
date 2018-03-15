@@ -13,6 +13,7 @@ public class BeerBehaviour : MonoBehaviour {
     int randomPosX;
     int randomPosY;
     public CharacterBehaviour player;
+    public AudioSource soundFX;
 
     public void Start()
     {
@@ -36,6 +37,7 @@ public class BeerBehaviour : MonoBehaviour {
         if((other.tag == "Player"))
         {
             player.GetDrunk();
+            soundFX.Play();
             Reset();
         }
     }
