@@ -50,5 +50,6 @@ public class EnemyBehaviour : MonoBehaviour
     {
         health = maxHealth;
         transform.position = new Vector3(random, transform.position.y, transform.position.z);
+        scoreValue = Random.Range(5, 15);
     }
 }
