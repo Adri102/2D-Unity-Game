@@ -35,7 +35,7 @@ public class BulletSpawner : MonoBehaviour
                 {
                     if(!bullets[i].gameObject.activeSelf)
                     {
-						bullets[i].transform.position = new Vector3(playerTransform.position.x+1.4f, playerTransform.position.y+0.75f, playerTransform.position.z) + new Vector3(0, bulletCounter*0.5f + 0.5f, 0);
+						bullets[i].transform.position = new Vector3(playerTransform.position.x+1.4f, playerTransform.position.y, playerTransform.position.z) + new Vector3(0, bulletCounter*0.5f + 0.5f, 0);
                         bullets[i].gameObject.SetActive(true);
                         bulletCounter++;
                         soundFXPowered.Play();
