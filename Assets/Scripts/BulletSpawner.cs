@@ -12,6 +12,8 @@ public class BulletSpawner : MonoBehaviour
     public bool shooting = false;
     public AudioSource soundFXShot;
     public AudioSource soundFXPowered;
+
+
     // Use this for initialization
     void Start ()
     {
@@ -33,7 +35,7 @@ public class BulletSpawner : MonoBehaviour
                 {
                     if(!bullets[i].gameObject.activeSelf)
                     {
-                        bullets[i].transform.position = playerTransform.position + new Vector3(0, bulletCounter*0.5f + 0.5f, 0);
+						bullets[i].transform.position = new Vector3(playerTransform.position.x+1.4f, playerTransform.position.y+0.75f, playerTransform.position.z) + new Vector3(0, bulletCounter*0.5f + 0.5f, 0);
                         bullets[i].gameObject.SetActive(true);
                         bulletCounter++;
                         soundFXPowered.Play();
@@ -51,7 +53,7 @@ public class BulletSpawner : MonoBehaviour
                 {
                     if(!bullets[i].gameObject.activeSelf)
                     {
-                        bullets[i].transform.position = playerTransform.position + new Vector3(0, 0.5f, 0);
+						bullets[i].transform.position = new Vector3(playerTransform.position.x+1.4f, playerTransform.position.y+0.75f, playerTransform.position.z) + new Vector3(0, 0.5f, 0);
                         bullets[i].gameObject.SetActive(true);
                         soundFXShot.Play();
                         bulletCounter = 0;
