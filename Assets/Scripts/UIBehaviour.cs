@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class UIBehaviour : MonoBehaviour
 {
+    public CharacterBehaviour character;
     public Text Text;
     public Text finalText;
     public int score;
+    public float totalScore;
+    public float maxScore;
     public float disctance;
     public float distanceMultiplicator;
 
@@ -20,7 +23,14 @@ public class UIBehaviour : MonoBehaviour
     {
         Text.text = "Score: " + score + "  Distance: " + (int)disctance;
 
-        finalText.text = "Score: " + score + "\nDistance: " + (int)disctance + "\nTotal: " + (score * (int)disctance);
+        if(character.state == CharacterBehaviour.State.Dead)
+        {
+            if(score <= 0) totalScore = (int)disctance;
+            else totalScore = (score * (int)disctance);
+            if(totalScore > maxScore) maxScore = totalScore; 
+            finalText.text = "                            MaxScore: " + maxScore + "\n\nScore: " + score + "\nDistance: " + (int)disctance + "\nTotal Score: " + totalScore;
+        }
+        
 
         disctance += Time.deltaTime * distanceMultiplicator;
     }

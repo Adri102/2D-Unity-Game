@@ -26,7 +26,7 @@ public class EnemyBehaviour : MonoBehaviour
         transform.Translate(Vector2.left * speed * Time.deltaTime);
         random = Random.Range(minRandom, maxRandom);
 
-        if (transform.position.x < -10 || health <= 0)
+        if (transform.position.x < -20 || health <= 0)
         {
             if(health <= 0) GameObject.Find("UIText").GetComponent<UIBehaviour>().AddScore(scoreValue);
             Reset();
