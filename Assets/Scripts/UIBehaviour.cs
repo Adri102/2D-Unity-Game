@@ -30,9 +30,7 @@ public class UIBehaviour : MonoBehaviour
             if(totalScore > maxScore) maxScore = totalScore; 
             finalText.text = "                            MaxScore: " + maxScore + "\n\nScore: " + score + "\nDistance: " + (int)disctance + "\nTotal Score: " + totalScore;
         }
-        
-
-        disctance += Time.deltaTime * distanceMultiplicator;
+        else disctance += Time.deltaTime * distanceMultiplicator;
     }
 
     public void AddScore(int ScoreToAdd)

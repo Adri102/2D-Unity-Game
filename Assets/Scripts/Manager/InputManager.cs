@@ -6,6 +6,7 @@ public class InputManager : MonoBehaviour
 {
     public CharacterBehaviour player;
     public BulletSpawner bullets;
+    public bool paused = false;
 
     void Start()
     {
@@ -14,6 +15,8 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
+        if(paused) Time.timeScale = 0f;
+        else Time.timeScale = 1.0f;
         // Leer para pausar el juego
         InputPause();
         // salto del player
@@ -25,7 +28,16 @@ public class InputManager : MonoBehaviour
 
     void InputPause()
     {
-        if(Input.GetButtonDown("Pause")) { Debug.Log("Pause"); }
+        if(Input.GetButtonDown("Pause"))
+        {
+            Debug.Log("Pause");
+            paused = !paused;
+        }
+    }
+
+    public void InputPauseButton()
+    {
+        paused = !paused;
     }
 
     void InputGodMode()
