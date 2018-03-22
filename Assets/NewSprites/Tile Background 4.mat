@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Tile Background 2
+  m_Name: Tile Background 4
   m_Shader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
@@ -43,9 +43,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: ff15f8c8968703a4f87f86b5a887cf07, type: 3}
+        m_Texture: {fileID: 2800000, guid: 32a0ef6d6089fd34c8afa7acb0b43d2f, type: 3}
         m_Scale: {x: 3, y: 1}
-        m_Offset: {x: 16.057129, y: 0}
+        m_Offset: {x: 9.231315, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}

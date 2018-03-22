@@ -6,6 +6,7 @@ public class InputManager : MonoBehaviour
 {
     public CharacterBehaviour player;
     public BulletSpawner bullets;
+    public GameObject pauseButton;
     public bool paused = false;
 
     void Start()
@@ -15,8 +16,16 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        if(paused) Time.timeScale = 0f;
-        else Time.timeScale = 1.0f;
+        if (paused)
+        {
+            pauseButton.SetActive(true);
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            pauseButton.SetActive(false);
+            Time.timeScale = 1.0f;
+        }
         // Leer para pausar el juego
         InputPause();
         // salto del player
