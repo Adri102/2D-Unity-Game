@@ -2,7 +2,7 @@ Welcome to Drunk'N'Gun!
 
 ![Screen](ArtSources/screenMockup.PNG)
 Game Description:
-- A game where our hero fights an army of nazis and sees everything in pixel art!
+- An infinity runner game where our hero fights an army of nazis and sees everything in pixel art!
 
 Controls:
 
