@@ -414,8 +414,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sprite: {fileID: 0}
   speed: 5
-  minRandom: 16
-  maxRandom: 32
+  minRandom: 24
+  maxRandom: 48
 --- !u!50 &65196711
 Rigidbody2D:
   serializedVersion: 4
@@ -11893,7 +11893,7 @@ MonoBehaviour:
     type: 2}
   speed: 5
   minRandom: 12
-  maxRandom: 20
+  maxRandom: 24
   health: 0
   maxHealth: 50
   soundFXHit: {fileID: 1368898142}
