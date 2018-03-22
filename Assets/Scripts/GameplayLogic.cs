@@ -19,6 +19,7 @@ public class GameplayLogic : MonoBehaviour
 	void Start ()
     {
         uIBehaviour = GameObject.Find("UIText").GetComponent<UIBehaviour>();
+        uIBehaviour.maxScore = PlayerPrefs.GetFloat("maxScore");
     }
 
     void Update()
@@ -26,11 +27,11 @@ public class GameplayLogic : MonoBehaviour
         if(player.state == CharacterBehaviour.State.Dead && !gameStoped)
             StopGame();
 
-       /* if (gameStoped)
-        {
-            GameData.gameState.maxScore = uIBehaviour.score;
-            //GameData.gameState.allScores.Add(name, uIBehaviour.score);
-        }*/
+        /* if (gameStoped)
+         {
+             GameData.gameState.maxScore = uIBehaviour.score;
+             //GameData.gameState.allScores.Add(name, uIBehaviour.score);
+         }*/
     }
 
     public void StopGame()
@@ -43,6 +44,7 @@ public class GameplayLogic : MonoBehaviour
 
     public void EndGame()
     {
+        PlayerPrefs.SetFloat("maxScore", uIBehaviour.maxScore);
         GameData.SaveGame(0);
         Application.Quit();
     }
