@@ -1,5 +1,6 @@
 Welcome to Drunk'N'Gun!
 
+![Screen](ArtSources/screenMockup.PNG)
 Game Description:
 - A game where our hero fights an army of nazis and sees everything in pixel art!
 
@@ -14,4 +15,4 @@ Tactile controls:
 - Shoot:Touch Right side of the screen.
 
 Team member:
-Adri‡ Arranz, Cristian LuzÛn, Jordi Jorba, Robert Font
+Adri√† Arranz, Cristian Luz√≥n, Jordi Jorba, Robert Font
